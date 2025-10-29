@@ -5,13 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Restaurant Sabor Riberalteño | Reservas y Delivery</title>
-  <meta name="description" content="Reservas, delivery y menú típico riberalteño y beniano: lomito, charque, keperí, paiche, pacú. Horarios, ubicación y promociones." />
+  <meta name="description" content="Reservas, delivery y menú típico riberalteño y beniano: lomito, charque, keperí, pescado, pacú. Horarios, ubicación y promociones." />
   <meta name="theme-color" content="#0b8c62" />
   <meta property="og:title" content="Sabor Riberalteño" />
   <meta property="og:description" content="Hacé tu reserva o pedido en línea. Cocina típica del norte del Beni." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1280&auto=format&fit=crop" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ctext y='1em' font-size='96'%3E%F0%9F%8D%B4%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ctext y='1em' font-size='96'%3E%F0%9F%90%8A%3C/text%3E%3C/svg%3E" />
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -19,9 +19,9 @@
 
   <style>
     :root{
-      --brand:#0b8c62; /* verde amazónico */
+      --brand:#0b8c62;
       --brand-2:#0a6a4b;
-      --accent:#f59e0b; /* dorado */
+      --accent:#f59e0b;
       --bg:#f6faf8;
     }
     html{scroll-behavior:smooth}
@@ -30,11 +30,11 @@
     .navbar .btn{border-radius:12px}
     .brand-badge{background:linear-gradient(90deg,var(--brand),#119e6f); color:#fff; border-radius:999px; padding:.25rem .65rem; font-size:.8rem}
     .hero{
-      background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.35)),url('https://images.unsplash.com/photo-1481455473976-c280ae7c10f3?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+      background:linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.2)),url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/eb/ca/c5/afternoon-at-the-lake.jpg?w=1400&h=1400&s=1') center/cover no-repeat;
       min-height:86vh; display:grid; place-items:center; color:#fff
     }
     .hero h1{font-weight:800; letter-spacing:.5px}
-    .hero .card{backdrop-filter: blur(6px); background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2)}
+    .hero .card{backdrop-filter:none; background:rgba(255,255,255,.92); color:#0a0f0d; border:1px solid rgba(0,0,0,.05)}
     .section-title{font-weight:800; letter-spacing:.3px}
     .pill{border:1px dashed rgba(0,0,0,.12); background:#fff; border-radius:999px; padding:.4rem .8rem}
     .menu-card{transition:all .25s ease; border:none; border-radius:18px; overflow:hidden; box-shadow:0 8px 28px rgba(0,0,0,.08)}
@@ -96,10 +96,10 @@
           <div class="card p-4 p-md-5 text-center rounded-4">
             <div class="mb-3"><span id="openStatus" class="pill"><span class="status-dot" id="statusDot"></span><span id="statusText">Cargando horario…</span></span></div>
             <h1 class="display-5 mb-3">Cocina típica del norte del Beni</h1>
-            <p class="lead mb-4">Lomito, charque, keperí, paiche y pacú con sabor auténtico riberalteño. Reservá tu mesa o pedí a domicilio en minutos.</p>
+            <p class="lead mb-4">Lomito, charque, keperí, pescado y pacú con sabor auténtico riberalteño. Reservá tu mesa o pedí a domicilio en minutos.</p>
             <div class="d-flex gap-2 justify-content-center flex-wrap">
               <a class="btn btn-brand btn-lg" href="#menu"><i class="fa-solid fa-utensils me-2"></i> Ver Menú</a>
-              <a class="btn btn-outline-light btn-lg" href="#delivery"><i class="fa-solid fa-motorcycle me-2"></i> Pedir Delivery</a>
+              <a class="btn btn-outline-dark btn-lg" href="#delivery"><i class="fa-solid fa-motorcycle me-2"></i> Pedir Delivery</a>
             </div>
             <div class="small-muted mt-3">Horario: 11:30–14:30 y 18:30–00:00, todos los días.</div>
           </div>
@@ -117,12 +117,13 @@
           <div class="small-muted">Platos riberalteños y benianos, con precios en bolivianos.</div>
         </div>
         <div class="d-flex gap-2">
-          <input id="searchInput" class="form-control" placeholder="Buscar plato (ej: paiche, charque)…" />
+          <input id="searchInput" class="form-control" placeholder="Buscar plato (ej: pescado, charque)…" />
           <select id="filterCat" class="form-select">
             <option value="todos">Todas las categorías</option>
             <option value="carnes">Carnes</option>
             <option value="pescados">Pescados</option>
             <option value="tradicionales">Tradicionales</option>
+            <option value="bebidas">Bebidas</option>
           </select>
         </div>
       </div>
@@ -130,7 +131,7 @@
       <div id="menuGrid" class="row g-4"></div>
 
       <div class="alert alert-info mt-4" role="alert">
-        <i class="fa-solid fa-circle-info me-2"></i> Los precios incluyen impuestos. Fotos referenciales. Podés añadir extras y bebidas al finalizar tu pedido.
+        <i class="fa-solid fa-circle-info me-2"></i> Los precios incluyen impuestos. Fotos referenciales. Podés añadir extras al finalizar tu pedido.
       </div>
     </div>
   </section>
@@ -140,8 +141,8 @@
     <div class="container">
       <div class="row align-items-center g-4">
         <div class="col-lg-6">
-          <h2 class="section-title">Promociones especiales</h2>
-          <p class="small-muted">Fechas destacadas: Día de la Mujer (8/03), Aniversario de Riberalta (3/02), Día de la Tradición (3/05), Día de la Madre (27/05). El tipo de promoción es definido por el restaurante para cada fecha.</p>
+          <h2 class="section-title">Fechas importantes</h2>
+          <p class="small-muted">El tipo de promoción lo define el restaurante para cada fecha.</p>
           <div class="row g-3">
             <div class="col-12">
               <div class="card promo-card p-3">
@@ -160,11 +161,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=1920&auto=format&fit=crop" alt="Promociones del restaurante" />
-          </div>
-        </div>
+        <div class="col-lg-6 d-none d-lg-block"></div>
       </div>
     </div>
   </section>
@@ -313,10 +310,11 @@
           <h2 class="section-title">¿Dónde estamos?</h2>
           <p class="small-muted mb-2">Barrio La Chonta, Av. Plácido Molina (diagonal a Imprenta Bemeco), Riberalta.</p>
           <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
-            <iframe src="https://www.google.com/maps?q=Riberalta%20La%20Chonta%20Av%20Pl%C3%A1cido%20Molina&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- Coordenadas precisas (-11.0005, -66.071722) -->
+            <iframe src="https://www.google.com/maps?q=-11.0005,-66.071722&hl=es&z=16&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
           <div class="mt-3 d-flex gap-2 flex-wrap">
-            <a class="btn btn-outline-secondary" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Riberalta+La+Chonta+Av+Pl%C3%A1cido+Molina"><i class="fa-solid fa-map me-2"></i>Abrir en Google Maps</a>
+            <a class="btn btn-outline-secondary" target="_blank" href="https://maps.app.goo.gl/12kjJhaqtFeGx42z5"><i class="fa-solid fa-map me-2"></i>Abrir en Google Maps (ubicación exacta)</a>
             <a class="btn btn-outline-secondary" href="#contacto"><i class="fa-brands fa-whatsapp me-2"></i>Escribir por WhatsApp</a>
           </div>
         </div>
@@ -356,14 +354,11 @@
         <div class="col-6 col-md-3"><img class="w-100" alt="Lomito" src="https://server-bucket-2022.s3.amazonaws.com/travelapp/5a2d2f60d1be7b43153d5b41952f3ebe_1721443973640.jpeg"></div>
         <div class="col-6 col-md-3"><img class="w-100" alt="Charque" src="https://jacaranda.com.bo/wp-content/uploads/2024/12/IMG_Jacaranda_charque-entero.webp"></div>
         <div class="col-6 col-md-3"><img class="w-100" alt="Keperí" src="https://comidasbolivianas.org/wp-content/uploads/2023/01/queperi-comida-tipica-beni-bolivia-1536x1398.jpg"></div>
-        <div class="col-6 col-md-3"><img class="w-100" alt="Chicharrón de Paiche (pequeña)" src="https://media-cdn.tripadvisor.com/media/photo-s/07/d4/26/a7/fundo-alegria.jpg"></div>
-        <div class="col-6 col-md-3"><img class="w-100" alt="Chicharrón de Paiche (mediano)" src="https://cocina-casera.com/wp-content/uploads/2018/01/Chicharr%C3%B3n-de-pescado.jpg"></div>
-        <div class="col-6 col-md-3"><img class="w-100" alt="Chicharrón de Paiche (grande)" src="https://comidasperuanas.com.pe/wp-content/uploads/2023/05/Chicharron_de_pescado.jpg"></div>
-        <div class="col-6 col-md-3"><img class="w-100" alt="Filete de Paiche" src="https://media-cdn.tripadvisor.com/media/photo-s/0a/f4/80/28/paiche-fish-filete-de.jpg"></div>
+        <div class="col-6 col-md-3"><img class="w-100" alt="Chicharrón de Pescado (mediano)" src="https://cocina-casera.com/wp-content/uploads/2018/01/Chicharr%C3%B3n-de-pescado.jpg"></div>
+        <div class="col-6 col-md-3"><img class="w-100" alt="Chicharrón de Pescado (grande)" src="https://comidasperuanas.com.pe/wp-content/uploads/2023/05/Chicharron_de_pescado.jpg"></div>
+        <div class="col-6 col-md-3"><img class="w-100" alt="Filete de Pescado" src="https://media-cdn.tripadvisor.com/media/photo-s/0a/f4/80/28/paiche-fish-filete-de.jpg"></div>
         <div class="col-6 col-md-3"><img class="w-100" alt="Costilla de Pacú" src="https://trinidadtevajaenamorar.com.bo/Imageneslugares/RESTAURANTES/103/galeria/2023-05-25-COSTILLADEPACU.jpeg"></div>
-        <div class="col-6 col-md-3"><img class="w-100" alt="Jugo de maracuyá" src="https://comedera.com/wp-content/uploads/sites/9/2022/08/Jugo-de-maracuya-con-avenashutterstock_1976561654.jpg?fit=1316,990&crop=0px,125px,1316px,740px"></div>
-        <div class="col-6 col-md-3"><img class="w-100" alt="Jugo de cocona" src="https://i.pinimg.com/736x/63/e4/c3/63e4c3b549e3dd0b5355e0afff917789.jpg"></div>
-        <div class="col-6 col-md-3"><img class="w-100" alt="Gaseosa 500 ml" src="https://www.fidalga.com/cdn/shop/products/COCACOLA-ORIGINAL-PERSONAL-500ML.png?v=1746460941"></div>
+        <div class="col-6 col-md-3"><img class="w-100" alt="Majadito aguado de charque" src="https://comidasbolivianas.org/wp-content/uploads/2021/10/majao.jpg"></div>
       </div>
     </div>
   </section>
@@ -389,7 +384,7 @@
               <div class="border rounded-3 p-3 mb-2">
                 <div class="fw-semibold">María</div>
                 <div class="text-warning">★★★★★</div>
-                <div class="small">El paiche estuvo excelente. ¡Súper recomendado!</div>
+                <div class="small">El pescado estuvo excelente. ¡Súper recomendado!</div>
               </div>
               <div class="border rounded-3 p-3 mb-2">
                 <div class="fw-semibold">Carlos</div>
@@ -472,32 +467,36 @@
     "servesCuisine": ["Boliviana", "Beniana", "Amazónica"],
     "openingHours": ["Mo-Su 11:30-14:30", "Mo-Su 18:30-24:00"],
     "telephone": "+59178794264",
-    "url": "https://tu-usuario.github.io/sabor-riberalteno/"
+    "url": "https://jcoca10.github.io/saboriberaleteno/"
   }
   </script>
 
   <!-- Configuración / Variables a personalizar -->
   <script>
     const CONFIG = {
-      WHATSAPP_NUMBER: "+591 78794264", // <- Actualizado
-      FORMSPREE_RESERVA: "https://formspree.io/f/YOUR_FORM_ID_RESERVA", // <- Reemplazar si usarás correo
-      FORMSPREE_DELIVERY: "https://formspree.io/f/YOUR_FORM_ID_DELIVERY", // <- Reemplazar si usarás correo
-      FORMSPREE_SUGERENCIAS: "https://formspree.io/f/YOUR_FORM_ID_SUGERENCIAS", // <- Reemplazar si usarás correo
-      ENVIO_ZONA: { "Centro": 5, "La Chonta": 6, "Otra": 8 }, // Bs.
+      WHATSAPP_NUMBER: "+591 78794264",
+      FORMSPREE_RESERVA: "https://formspree.io/f/YOUR_FORM_ID_RESERVA",
+      FORMSPREE_DELIVERY: "https://formspree.io/f/YOUR_FORM_ID_DELIVERY",
+      FORMSPREE_SUGERENCIAS: "https://formspree.io/f/YOUR_FORM_ID_SUGERENCIAS",
+      ENVIO_ZONA: { "Centro": 5, "La Chonta": 6, "Otra": 8 },
       HORARIOS: [
         { ini: "11:30", fin: "14:30" },
         { ini: "18:30", fin: "24:00" }
       ],
       PROMO_FECHAS: [
-        { mes: 2, dia: 3, titulo: "Aniversario de Riberalta" }, // 3 de febrero
-        { mes: 3, dia: 8, titulo: "Día de la Mujer" },
-        { mes: 5, dia: 3, titulo: "Día de la Tradición" },
-        { mes: 5, dia: 27, titulo: "Día de la Madre" }
+        { mes: 2,  dia: 3,  titulo: "Aniversario de Riberalta" },
+        { mes: 3,  dia: 8,  titulo: "Día de la Mujer" },
+        { mes: 3,  dia: 19, titulo: "Día del Padre" },
+        { mes: 4,  dia: 12, titulo: "Día del Niño" },
+        { mes: 5,  dia: 3,  titulo: "Día de la Tradición" },
+        { mes: 5,  dia: 27, titulo: "Día de la Madre" },
+        { mes: 7,  dia: 26, titulo: "Día de la Bandera" },
+        { mes: 10, dia: 11, titulo: "Día de la Mujer Boliviana" }
       ]
     };
   </script>
 
-  <!-- Datos del Menú -->
+  <!-- Datos del Menú (solo comida; bebidas removidas) -->
   <script>
     const MENU = [
       {
@@ -525,36 +524,36 @@
         desc: "Costillar a la brasa, jugoso y sabroso."
       },
       {
-        id: "chicharron-paiche-15",
-        nombre: "Chicharrón de Paiche (porción pequeña)",
+        id: "chicharron-pescado-mediano",
+        nombre: "Chicharrón de Pescado (mediano)",
         categoria: "pescados",
         precio: 15,
-        img: "https://media-cdn.tripadvisor.com/media/photo-s/07/d4/26/a7/fundo-alegria.jpg",
-        desc: "Bocados de paiche crujiente."
+        img: "https://cocina-casera.com/wp-content/uploads/2018/01/Chicharr%C3%B3n-de-pescado.jpg",
+        desc: "Bocados de pescado crujiente."
       },
       {
-        id: "chicharron-paiche-20",
-        nombre: "Chicharrón de Paiche (mediano)",
+        id: "chicharron-pescado-grande",
+        nombre: "Chicharrón de Pescado (grande)",
         categoria: "pescados",
         precio: 20,
-        img: "https://cocina-casera.com/wp-content/uploads/2018/01/Chicharr%C3%B3n-de-pescado.jpg",
+        img: "https://comidasperuanas.com.pe/wp-content/uploads/2023/05/Chicharron_de_pescado.jpg",
         desc: "Porción ideal para compartir."
       },
       {
-        id: "chicharron-paiche-30",
-        nombre: "Chicharrón de Paiche (grande)",
-        categoria: "pescados",
-        precio: 30,
-        img: "https://comidasperuanas.com.pe/wp-content/uploads/2023/05/Chicharron_de_pescado.jpg",
-        desc: "Para mesas grandes o familias."
+        id: "majadito-aguado-charque",
+        nombre: "Majadito aguado de charque",
+        categoria: "tradicionales",
+        precio: 25,
+        img: "https://comidasbolivianas.org/wp-content/uploads/2021/10/majao.jpg",
+        desc: "Receta típica con charque, arroz y huevo."
       },
       {
-        id: "filete-paiche",
-        nombre: "Filete de Paiche",
+        id: "filete-pescado",
+        nombre: "Filete de Pescado",
         categoria: "pescados",
         precio: 20,
         img: "https://media-cdn.tripadvisor.com/media/photo-s/0a/f4/80/28/paiche-fish-filete-de.jpg",
-        desc: "Filete suave de paiche con ensalada fresca."
+        desc: "Filete suave de pescado con ensalada fresca."
       },
       {
         id: "costilla-pacu",
@@ -563,28 +562,21 @@
         precio: 30,
         img: "https://trinidadtevajaenamorar.com.bo/Imageneslugares/RESTAURANTES/103/galeria/2023-05-25-COSTILLADEPACU.jpeg",
         desc: "Costillas jugosas de pacú al horno."
-      },
-      // Extras & Bebidas
-      { id: "refresco-maracuya", nombre: "Jugo de maracuyá", categoria: "bebidas", precio: 8, img: "https://comedera.com/wp-content/uploads/sites/9/2022/08/Jugo-de-maracuya-con-avenashutterstock_1976561654.jpg?fit=1316,990&crop=0px,125px,1316px,740px", desc: "Natural y refrescante." },
-      { id: "refresco-cocona", nombre: "Jugo de cocona", categoria: "bebidas", precio: 8, img: "https://i.pinimg.com/736x/63/e4/c3/63e4c3b549e3dd0b5355e0afff917789.jpg", desc: "Fruta amazónica." },
-      { id: "gaseosa-500", nombre: "Gaseosa 500 ml", categoria: "bebidas", precio: 7, img: "https://www.fidalga.com/cdn/shop/products/COCACOLA-ORIGINAL-PERSONAL-500ML.png?v=1746460941", desc: "Variedades disponibles." }
+      }
     ];
   </script>
 
   <!-- Lógica principal -->
   <script>
-    // Utilidades
     const $ = (sel, ctx=document) => ctx.querySelector(sel);
     const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
     const money = n => `Bs. ${Number(n).toFixed(0)}`;
 
-    // Estado
     let CART = JSON.parse(localStorage.getItem('sr_cart')||'[]');
 
     function saveCart(){ localStorage.setItem('sr_cart', JSON.stringify(CART)); renderCart(); calcDeliverySummary(); updateCartCount(); }
     function updateCartCount(){ $('#cartCount').textContent = CART.reduce((a,i)=>a+i.qty,0); }
 
-    // Render Menú
     function renderMenu(){
       const grid = $('#menuGrid');
       grid.innerHTML = '';
@@ -616,7 +608,6 @@
       });
     }
 
-    // Ver ítem (modal rápida)
     function viewItem(id){
       const m = MENU.find(x=>x.id===id); if(!m) return;
       const html = `
@@ -641,7 +632,6 @@
       wrap.addEventListener('hidden.bs.modal', ()=>wrap.remove(), {once:true});
     }
 
-    // Carrito
     function addToCart(id){
       const item = MENU.find(x=>x.id===id); if(!item) return;
       const idx = CART.findIndex(x=>x.id===id);
@@ -660,7 +650,6 @@
 
     function renderCart(){
       const {subtotal, lines} = cartTotals();
-      // Offcanvas
       const cont = $('#cartItems');
       cont.innerHTML = lines.map(({m,ci,line})=>`
         <div class="d-flex align-items-center justify-content-between border-bottom py-2">
@@ -681,13 +670,11 @@
           </div>
         </div>`).join('') || '<div class="text-center text-muted">Tu carrito está vacío.</div>';
 
-      // Resúmenes
       $('#ocSubtotal').textContent = money(subtotal);
       const envio = estimateEnvio();
       $('#ocEnvio').textContent = money(envio);
       $('#ocTotal').textContent = money(subtotal + envio);
 
-      // Resumen lateral Delivery
       const resumen = lines.map(({m,ci})=>`<div class="d-flex justify-content-between"><span>${ci.qty}× ${m.nombre}</span><span>${money(m.precio*ci.qty)}</span></div>`).join('');
       $('#carritoResumen').innerHTML = resumen || '<div class="text-muted">Sin ítems.</div>';
       $('#cartSubtotal').textContent = money(subtotal);
@@ -708,7 +695,6 @@
       $('#dlvTotal').textContent = money(subtotal+envio);
     }
 
-    // Horario abierto/cerrado
     function isOpenNow(date=new Date()){
       const pad = n=>String(n).padStart(2,'0');
       const hm = pad(date.getHours())+":"+pad(date.getMinutes());
@@ -720,7 +706,6 @@
       $('#statusText').textContent = open? 'Abierto ahora' : 'Cerrado ahora';
     }
 
-    // Promociones: próxima fecha y progreso del año
     function nextPromo(now=new Date()){
       const year = now.getFullYear();
       const list = CONFIG.PROMO_FECHAS.map(p=>{
@@ -742,7 +727,6 @@
       $('#promoProgress').style.width = (elapsed/total*100).toFixed(1)+'%';
     }
 
-    // Formularios (Reserva / Delivery / Sugerencias)
     function toWhatsAppLink(text){
       const number = CONFIG.WHATSAPP_NUMBER.replace(/[^0-9]/g,'');
       const url = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
@@ -753,8 +737,6 @@
       e.preventDefault();
       const fd = new FormData(e.target);
       const data = Object.fromEntries(fd.entries());
-      // Validar horario
-      const [h, m] = data.hora.split(':').map(Number);
       const valid = CONFIG.HORARIOS.some(t=> data.hora>=t.ini && data.hora<=t.fin );
       if(!valid){ alert('La hora elegida está fuera del horario de atención.'); return; }
       const msg = `*RESERVA*%0A%0ANombre: ${data.nombre}%0ATeléfono: ${data.telefono}%0AFecha: ${data.fecha}%0AHora: ${data.hora}%0APersonas: ${data.personas}%0ANotas: ${data.notas||'-'}`;
@@ -781,7 +763,6 @@
       if($('#sendWhatsDelivery').checked){
         window.open(toWhatsAppLink(msg), '_blank');
       } else {
-        // Adjuntar carrito al form
         fd.append('detalle_pedido', decodeURIComponent(lines.replaceAll('%0A','\n')) );
         fd.append('subtotal', subtotal);
         fd.append('envio', envio);
@@ -790,7 +771,6 @@
           .then(()=>alert('Pedido enviado. Te confirmaremos por WhatsApp.'))
           .catch(()=>alert('No se pudo enviar. Intentá nuevamente.'));
       }
-      // Mantener carrito por si quiere reintentar; no vaciamos automáticamente.
     }
 
     function handleSugerencias(e){
@@ -802,26 +782,23 @@
         .catch(()=>alert('No se pudo enviar. Intentá nuevamente.'));
     }
 
-    // Eventos
     document.addEventListener('DOMContentLoaded', ()=>{
-      // Año footer
       $('#year').textContent = new Date().getFullYear();
 
-      // Links contacto dinámicos
       const num = CONFIG.WHATSAPP_NUMBER.replace(/[^0-9]/g,'');
       $('#waLink').href = `https://wa.me/${num}`;
       $('#telLink').href = `tel:${num}`;
 
-      // Render inicial
       renderMenu(); renderCart(); renderOpenStatus(); renderPromo(); calcDeliverySummary(); updateCartCount();
       $('#searchInput').addEventListener('input', renderMenu);
       $('#filterCat').addEventListener('change', renderMenu);
-      $('[name="zona"]').addEventListener('change', ()=>{ renderCart(); calcDeliverySummary(); });
-      $('#btnVaciar').addEventListener('click', ()=>{ CART=[]; saveCart(); calcDeliverySummary(); });
-      $('#ocVaciar').addEventListener('click', ()=>{ CART=[]; saveCart(); });
+      const zonaSel = document.querySelector('[name="zona"]');
+      if(zonaSel) zonaSel.addEventListener('change', ()=>{ renderCart(); calcDeliverySummary(); });
+      const btnVac = document.getElementById('btnVaciar'); if(btnVac) btnVac.addEventListener('click', ()=>{ CART=[]; saveCart(); calcDeliverySummary(); });
+      const ocVac = document.getElementById('ocVaciar'); if(ocVac) ocVac.addEventListener('click', ()=>{ CART=[]; saveCart(); });
+
       setInterval(()=>{ renderOpenStatus(); }, 60*1000);
 
-      // Formularios
       $('#formReserva').addEventListener('submit', handleReserva);
       $('#formDelivery').addEventListener('submit', handleDelivery);
       $('#formSugerencias').addEventListener('submit', handleSugerencias);
